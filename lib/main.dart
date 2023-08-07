@@ -1,5 +1,6 @@
 
 import 'package:dart_level/map_khodemoneh.dart';
+import 'package:dart_level/namedconstructor.dart';
 
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class _Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: MapKhodemoneh(),
+        body: namedcons(),
       ),
     );
   }
