@@ -1,7 +1,8 @@
-import 'package:dart_level/extension_lear.dart';
-import 'package:dart_level/tafavot_async_await.dart';
+
+import 'package:dart_level/map_khodemoneh.dart';
+
 import 'package:flutter/material.dart';
-import 'package:dart_level/screen_main.dart';
+
 
 void main() {
   runApp(_Application());
@@ -14,7 +15,7 @@ class _Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: extension_class(),
+        body: MapKhodemoneh(),
       ),
     );
   }
