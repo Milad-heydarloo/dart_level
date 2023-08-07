@@ -1,3 +1,6 @@
+
+import 'dart:convert';
+
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 
@@ -19,8 +22,8 @@ class _GetDataAtServersState extends State<GetDataAtServers> {
             Text('out!'),
             Center(
               child: OutlinedButton(
-                onPressed: () {
-                  GetData();
+                onPressed:  ()  {
+                   GetData();
                 },
                 child: const Text(
                   'data',
@@ -35,7 +38,9 @@ class _GetDataAtServersState extends State<GetDataAtServers> {
 }
 
 void GetData() async {
-  var uri = Uri.parse('https://jsonplaceholder.typicode.com/photos');
-   Response response = await get(uri);
-   print(response.body.toString());
+  var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts/1');
+  Response response = await get(uri);
+  //age bekhaim az in response ye meghdariu kharej konim az jsonDecode stefadeh mikonim
+  var title = jsonDecode(response.body)['body'];
+  print(title);
 }
