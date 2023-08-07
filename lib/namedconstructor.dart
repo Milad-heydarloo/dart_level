@@ -53,4 +53,6 @@ class Car {
     print(company!+model!+year!+' va ABS => '+hasABS.toString()+' yani nadareh ');
 
   }
+
+  //Factory Constructor
 }
