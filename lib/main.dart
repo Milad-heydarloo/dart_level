@@ -1,5 +1,6 @@
 
 import 'package:dart_level/GetDataAtServer.dart';
+import 'package:dart_level/JSON_OBJECT_ARRAY.dart';
 import 'package:dart_level/enumMe.dart';
 
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: GetDataAtServers(),
+        body: Json_Object_array(),
       ),
     );
   }

@@ -97,7 +97,7 @@ class _GetDataAtServersState extends State<GetDataAtServers> {
     var thumbnailUrlR = jsonDecode(response.body)['thumbnailUrl'];
     setState(() {
       title = titleR;
-      albumId = albumIdR+11;
+      albumId = albumIdR;
       thumbnailUrl = thumbnailUrlR;
     //  body = bodyR;
       if (!vis) {
