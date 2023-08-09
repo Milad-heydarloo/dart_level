@@ -41,6 +41,6 @@ void GetData() async {
   var uri = Uri.parse('https://jsonplaceholder.typicode.com/posts/1');
   Response response = await get(uri);
   //age bekhaim az in response ye meghdariu kharej konim az jsonDecode stefadeh mikonim
-  var title = jsonDecode(response.body)['body'];
+  var title = jsonDecode(response.body)['title'];
   print(title);
 }
