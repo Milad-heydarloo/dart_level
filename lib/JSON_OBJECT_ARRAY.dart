@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dart_level/GetDataBefourActivity.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
@@ -66,12 +67,12 @@ class _Json_Object_arrayState extends State<Json_Object_array> {
       txt2 = jsonDecode(response.body)['address']['geo']['lat'];
 
       _get_USERS();
-   
-      
+
+
     });
   }
-  
-  
+
+
   void _get_USERS()async{
     var uri=Uri.parse('https://jsonplaceholder.typicode.com/users');
     // https://jsonplaceholder.typicode.com/users JSON ARRAY IN USERS
@@ -81,12 +82,11 @@ class _Json_Object_arrayState extends State<Json_Object_array> {
     //esm user ro az khoneh 0 ke mishe aval begirim
     String website=jsonDecode(response.body)[0]['website'];
 
+   String nam='';
     //gerftan esm user ha hamashon dast bezan be mamashon
-    for(int i=0;i<10;i++){
-      var users_name=jsonDecode(response.body)[i]['name'];
-      print(users_name+'  ');
+    for (int i = 0; i < 10; i++) {
+      nam = jsonDecode(response.body)[i]['name'];
     }
-    
-    
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenPageGetData(nam),),);
   }
 }
