@@ -49,4 +49,7 @@ class _ScreenPageGetDataState extends State<ScreenPageGetData> {
     //va mirizeh to value to class Gool
     names = widget.name;
   }
+
+
+
 }
