@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dart_level/User.dart';
 import 'package:flutter/material.dart';
 
@@ -7,8 +5,8 @@ class ScreenPageGetData extends StatefulWidget {
   //  const ScreenPageGetData({Key? key}) : super(key: key);
   //age bekhaim az ye class dige data begirim  const ScreenPageGetData({Key? key}) : super(key: key);
   //method ro injori minevisim
-  ScreenPageGetData( {Key? key,this.userse}) : super(key: key);
-  Users? userse;
+  ScreenPageGetData({this.userse, Key? key}) : super(key: key);
+  List<Users>? userse;
 
   @override
   State<ScreenPageGetData> createState() => _ScreenPageGetDataState();
@@ -27,21 +25,23 @@ class _ScreenPageGetDataState extends State<ScreenPageGetData> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(names!.email,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25),),
-            ],
-          ),
+        child: ListView.builder(
+          itemCount: names!.length,
+          itemBuilder: (context, index) {
+            return Text(
+              names![index].name,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+            );
+          },
         ),
+        //
       ),
     );
   }
 
   //vase inke dataro begirim az initState estefadeh mikonim
   //aval ye variable misazim
-  Users? names ;
+  late List<Users>? names;
 
   @override
   void initState() {
@@ -51,7 +51,4 @@ class _ScreenPageGetDataState extends State<ScreenPageGetData> {
     //va mirizeh to value to class Gool
     names = widget.userse;
   }
-
-
-
 }

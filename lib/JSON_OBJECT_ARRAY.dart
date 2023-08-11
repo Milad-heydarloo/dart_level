@@ -40,12 +40,12 @@ class _Json_Object_arrayState extends State<Json_Object_array> {
               child: OutlinedButton(
                 onPressed: () {
                   // _get_data();
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ScreenPageGetData(userse: _users!),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => ScreenPageGetData(userse: _users!),
+                  //   ),
+                  // );
                 },
                 child: const Text(
                   '_Json_Object_arrayState',

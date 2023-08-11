@@ -45,12 +45,12 @@ class _DioGetDataState extends State<DioGetData> {
             Center(
               child: OutlinedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ScreenPageGetData(  userse: users!),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => ScreenPageGetData(  userse: users!),
+                  //   ),
+                  // );
                 },
                 child: const Text(
                   'data',
