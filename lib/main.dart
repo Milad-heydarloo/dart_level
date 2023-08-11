@@ -1,5 +1,6 @@
 
 import 'package:dart_level/GetDataAtServer.dart';
+import 'package:dart_level/GetdataServerDIO.dart';
 import 'package:dart_level/JSON_OBJECT_ARRAY.dart';
 import 'package:dart_level/enumMe.dart';
 
@@ -17,7 +18,7 @@ class _Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Json_Object_array(),
+        body: DioGetData(),
       ),
     );
   }

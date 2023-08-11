@@ -33,7 +33,7 @@ class _Json_Object_arrayState extends State<Json_Object_array> {
           size: 50.0,
 
         ),
-            SizedBox(height: 40,),
+            SizedBox(height: 80,),
             Text('$txt'),
             Text('$txt2'),
             Center(
@@ -43,7 +43,7 @@ class _Json_Object_arrayState extends State<Json_Object_array> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ScreenPageGetData(_users!),
+                      builder: (context) => ScreenPageGetData(userse: _users!),
                     ),
                   );
                 },
