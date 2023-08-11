@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:dart_level/GetDataBefourActivity.dart';
+import 'package:dart_level/User.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
@@ -15,22 +16,26 @@ class Json_Object_array extends StatefulWidget {
 class _Json_Object_arrayState extends State<Json_Object_array> {
   String? txt;
   String? txt2;
-
+Users? _users;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
             Text('$txt'),
             Text('$txt2'),
             Center(
               child: OutlinedButton(
                 onPressed: () {
-                  _get_data();
+                // _get_data();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ScreenPageGetData(_users!),
+                    ),
+                  );
                 },
                 child: const Text(
                   '_Json_Object_arrayState',
@@ -41,10 +46,8 @@ class _Json_Object_arrayState extends State<Json_Object_array> {
               height: 400,
               width: 400,
               child: Lottie.network(
-
                   'https://assets-v2.lottiefiles.com/a/053201ee-116e-11ee-9953-db82c80cd2e4/VVOLWkKqWc.json'),
             ),
-
           ],
         ),
       ),
@@ -67,26 +70,49 @@ class _Json_Object_arrayState extends State<Json_Object_array> {
       txt2 = jsonDecode(response.body)['address']['geo']['lat'];
 
       _get_USERS();
-
-
     });
   }
 
-
-  void _get_USERS()async{
-    var uri=Uri.parse('https://jsonplaceholder.typicode.com/users');
+  void _get_USERS() async {
+    var uri = Uri.parse('https://jsonplaceholder.typicode.com/users');
     // https://jsonplaceholder.typicode.com/users JSON ARRAY IN USERS
 
-    Response response=await get(uri);
+    Response response = await get(uri);
     //in chon ye array hast ma az andis 0 rom ke mishe khoneh aval araye estefadeh mikonim ta
     //esm user ro az khoneh 0 ke mishe aval begirim
-    String website=jsonDecode(response.body)[0]['website'];
+    String website = jsonDecode(response.body)[0]['website'];
 
-   String nam='';
+    String nam = '';
     //gerftan esm user ha hamashon dast bezan be mamashon
     for (int i = 0; i < 10; i++) {
       nam = jsonDecode(response.body)[i]['name'];
     }
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ScreenPageGetData(nam),),);
+    // Navigator.push(
+    //   context,
+    //   MaterialPageRoute(
+    //     builder: (context) => ScreenPageGetData(nam),
+    //   ),
+    // );
+  }
+
+  //inja mikhaim ye user ro begirim va tavasot click pass bedim safe bad
+
+  void GetDataUser() async {
+
+    var uri=Uri.parse('https://jsonplaceholder.typicode.com/users/2');
+    Response response = await get(uri);
+    int id=jsonDecode(response.body)['id'];
+    String name =jsonDecode(response.body)['name'];
+    String username =jsonDecode(response.body)['username'];
+    String email=jsonDecode(response.body)['email'];
+    String city=jsonDecode(response.body)['address']['city'];
+    _users=Users(id, name, username, email, city);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    GetDataUser();
   }
 }
